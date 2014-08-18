@@ -1,0 +1,31 @@
+
+
+<h1><%= @page_title = "New User"%> <%= @user %> </h1>
+
+<%= link_to("back to index", {:action => "index"}) %> 
+
+ <div>
+  <h2> Create User </h2> 
+   	<%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+
+   	   <%= render(:partial => "form_user_table", :locals => {:f => f}) %> 
+
+  	
+
+   	<%= submit_tag 'Create User' %> 
+</div>
+ <% end %> 
+
+
+<%= debug(assigns) %>
+
+<!-- </br>
+<p>this is the user name <%= @user %> </p>
+</br>
+<p>this is the users name <%= @users %> </p>
+</br> -->
+
+
+
+
+

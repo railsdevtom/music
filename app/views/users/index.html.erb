@@ -1,0 +1,14 @@
+<h1>Hello <%= @name %> </h1>
+
+<%= form_tag :action => 'show' do %> 
+   <p>Enter your name:
+   	<%= text_field_tag 'visitor_name', @name %> </p> 
+    
+   	<%= submit_tag 'Sign in' %> 
+
+ <% end %> 
+
+ <p> this is the end </p> 
+
+
+<%= debug(assigns) %>

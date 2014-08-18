@@ -1,0 +1,48 @@
+<h1>Hi <%= @fname %> </h1>
+
+<h2>Sign In form </h2>
+
+<%= form_tag :action => 'sign_in' do %> 
+<div>
+ <table user_form = "detail view">
+   <tr> 
+   	   <th>first name:</th>
+   	<td><%= text_field_tag 'first_name', @first_name %> </td>
+   </tr>
+   <tr>
+   	<th>last name:</th>
+   	<td><%= text_field_tag 'lname', @last_name %> </td> 
+   </tr>
+   	<tr> 
+   		<th>email:</th>
+   	<td><%= text_field_tag 'email', @email %> </td> 
+   </tr>
+   <tr>
+   	<th>summary:</th>
+   	<td><%= text_field_tag 'summary', @summary %> </td>
+   	</tr> 
+ </table>   	
+</br>
+   	<%= submit_tag 'Sign in' %> 
+</div>
+ <% end %> 
+
+<%= debug(params) %>
+
+</br>
+</br>
+<p>this is the user name <%= @user %> </p>
+</br>
+<p>this is the users name <%= @users %> </p>
+</br>
+<p>this is the fname name <%= @fname %> </p>
+</br>
+<p>this is the lname name <%= @lname %> </p>
+
+ <ul>
+  	<% @users.each do |user| %>
+ 	  <li><%= user.fname %> </li>
+ 	<% end %> 
+ </ul>
+
+
