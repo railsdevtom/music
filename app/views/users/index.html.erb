@@ -10,7 +10,7 @@
   <div><%= pluralize(@users.size, 'users') %> found</div>
   <table class="listing" summary="Users list in table">
     <tr class="header">
-      <th>first</th>
+
         <th>first</th>
       <th>last</th>
       <th>email</th>
@@ -18,8 +18,8 @@
     </tr>
       <% @users.each do |users| %>
     <tr class="<%= cycle('odd', 'even') %>">
-      <td><%= users.fname %></td>
-      <td><%= users.fname %></td>
+
+      <td><%= users.firstname %></td>
       <td><%= users.lname %></td>
       <td><%= users.email %></td>
       <td><%= users.summary %></td>

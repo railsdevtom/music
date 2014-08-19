@@ -12,7 +12,6 @@ def sign_in
  end
 
 
-
   def index
    @users = User.all
   end
@@ -61,7 +60,7 @@ def sign_in
 
   def destroy 
     user = User.find(params[:id]).destroy
-    flash[:notice] = "User '#{user.fname}' destroyed successfully."
+    flash[:notice] = "User '#{user.firstname}' destroyed successfully."
     redirect_to(:action => 'index')
   end 
 
@@ -75,7 +74,7 @@ def sign_in
   private 
 
     def user_params
-       params.require(:user).permit(:fname, :lname, :email, :summary)
+       params.require(:user).permit(:firstname, :lname, :email, :summary)
     end 
 
 
