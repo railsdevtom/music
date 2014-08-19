@@ -1,14 +1,37 @@
-<h1>Hello <%= @name %> </h1>
+<% @page_title = "Users list" %>
 
-<%= form_tag :action => 'show' do %> 
-   <p>Enter your name:
-   	<%= text_field_tag 'visitor_name', @name %> </p> 
-    
-   	<%= submit_tag 'Sign in' %> 
+<%= link_to("<< Back to Menu", {:controller => 'users', :action => 'index'}, :class => 'back-link') %>
 
- <% end %> 
+<div class="subjects index">
+  <h2>Subjects</h2>
 
- <p> this is the end </p> 
+  <%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New User", {:action => 'new'}, :class => 'action new') %>
 
+  <div><%= pluralize(@users.size, 'users') %> found</div>
+  <table class="listing" summary="Users list in table">
+    <tr class="header">
+      <th>first</th>
+        <th>first</th>
+      <th>last</th>
+      <th>email</th>
+      <th>summary</th>
+    </tr>
+      <% @users.each do |users| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= users.fname %></td>
+      <td><%= users.fname %></td>
+      <td><%= users.lname %></td>
+      <td><%= users.email %></td>
+      <td><%= users.summary %></td>
 
-<%= debug(assigns) %>
+     <td>
+        <%= link_to("View Users Show", {:controller => 'users', :user_id => users.id}, :class => 'action show') %>
+         <%= link_to("Show", {:action => 'show', :id => users.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => users.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => users.id}, :class => 'action delete') %>
+    </td>
+
+    </tr>
+    <% end %>
+  </table>
+</div>

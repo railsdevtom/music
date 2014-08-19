@@ -1,2 +1,18 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+
+<% @user_title = "update user" %>
+
+<div class="user edit"> 
+	<h2> User update </h2> 
+
+	<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+
+	  <%= render(:partial => "form_user_table", :locals => {:f => f}) %> 
+
+	  <div class="form-buttons">
+	  	<%= submit_tag("user update") %>
+	  </div>
+
+	  <% end %>
+
+	 </div> 
+

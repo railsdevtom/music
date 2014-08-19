@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  
+
+layout "user"  
 
 
 def sign_in
@@ -7,9 +8,8 @@ def sign_in
  # if !@fname.blank? 
  #@User = User.create({:fname => @fname})
    #end
-
-@users = User.all
-end
+   @users = User.all
+ end
 
 
 
@@ -25,8 +25,8 @@ end
 
 
   def create
-     @user = User.new(params.require(:user).permit(:fname, :lname, :email, :summary))
-       if @user.save
+     @user = User.new(user_params)
+      if @user.save
     
         flash[:notice] = "User created successfully"
         redirect_to(:action => "index")
@@ -38,21 +38,44 @@ end
 
 
   def edit
+    @user = User.find(params[:id])
+    @user_count = User.count
   end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:notice] = "User updated Successfully"
+      redirect_to(:action => "show", :id => @user.id)
+    else
+      @user_count = User.count
+      render('edit')
+    end
+  end
+
 
   def delete
+    @user = User.find(params[:id])
   end
 
+
+  def destroy 
+    user = User.find(params[:id]).destroy
+    flash[:notice] = "User '#{user.fname}' destroyed successfully."
+    redirect_to(:action => 'index')
+  end 
+
+
   def show
+    @user = User.find(params[:id])
   end
+
+
 
   private 
 
     def user_params
-
-       
- 
-
+       params.require(:user).permit(:fname, :lname, :email, :summary)
     end 
 
 
