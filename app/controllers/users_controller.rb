@@ -69,6 +69,13 @@ def sign_in
     @user = User.find(params[:id])
   end
 
+ #do a search 
+
+     def live_search
+@searchphrase = "*" + params[:query] + "*"
+@results = Post.find(:all, :conditions => ["Description LIKE ? ", @searchphrase])
+render(:layout => false) 
+    end 
 
 
   private 

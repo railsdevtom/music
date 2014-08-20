@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140816042032) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "entries", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -36,11 +39,11 @@ ActiveRecord::Schema.define(version: 20140816042032) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email"
     t.string   "fname"
     t.string   "firstname"
     t.string   "lname"
-    t.string   "summary"
+    t.string   "email"
+    t.text     "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,10 @@
+ 
+
+ <% if @results.empty? %> 
+Query not found! 
+   <% else %>
+   <% @results.each do |post| %> 
+<% link_to post:title, post %> 
+   <% end %> 
+   <% end %> 
+
