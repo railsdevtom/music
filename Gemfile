@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -19,7 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-gem 'acts_as_list', :git => 'git://github.com/swanandp/acts_as_list.git'
 
 gem 'sprockets'
 
