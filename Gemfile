@@ -8,6 +8,11 @@ gem 'gravatar_image_tag'
 
 gem 'pg'
 
+gem 'sunspot_rails'
+gem 'sunspot_solr'  #optional pre-packaged solr in development
+
+
+
 source 'http://rubygems.org'
 
 #gem 'sqlite3'

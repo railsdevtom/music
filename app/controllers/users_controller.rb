@@ -78,6 +78,25 @@ render(:layout => false)
     end 
 
 
+  def searchindex
+    if params[:q] 
+      query = params[:q]
+      @search = User.search do
+        keywords query
+      end
+      @users = @search.results
+    else
+      @users = User.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml { render :xml => @users}
+    end
+  end
+
+
+
   private 
 
     def user_params

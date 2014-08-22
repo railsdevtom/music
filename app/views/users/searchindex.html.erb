@@ -1,0 +1,30 @@
+<h1> listing the search posts </h1>
+
+<form> 
+ <%= text_field_tag "q", params[:q] %> 
+  <input type="submit" value="Search">
+  </form>
+
+  <% if @search %>
+   <h3> <%=@search.total%> results </h3>
+   <% end %>
+
+
+
+  <table>
+  	<tr>
+  		<th>First Name</th>
+  		<th>Summary</th> 
+  	</tr>
+
+  	<% @users.each do |user| %>
+  	   <tr>
+  	   		<td><%=h user.firstname %></td> 
+  	   		<td><%=h user.summary %></td> 
+
+  	   </tr>
+  	   <%end%>
+  	</table>
+
+
+
